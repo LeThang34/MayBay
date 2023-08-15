@@ -70,43 +70,6 @@ float wheelAngleLeft = carAngle;
 float wheelAngleRight = carAngle;
 
 float quay = 0;
-void drawPlane(float x, float y, float z, float angle, float r, float g, float b) {
-	// Thân
-	glPushMatrix();
-	glTranslatef(x, y, z);
-	glRotatef(angle * 180 / 3.14, 0.0, 1.0, 0.0);
-	glScalef(2, 0.5, 0.5);
-	glColor3f(r, g, b);
-	glutSolidSphere(2, 50, 50);
-	glPopMatrix();
-
-	// Cabin
-	glPushMatrix();
-	glTranslatef(x - 1., y + 0.8 * cos(angle), z + 0.8 * sin(angle));
-	glScalef(1, 0.5, 0.5);
-	glColor3f(r - 0.2, g - 0.2, b - 0.2);
-	glutSolidSphere(1, 50, 50);
-	glPopMatrix();
-
-	// Cánh
-	glPushMatrix();
-	glTranslatef(x + cos(angle), y + 1.2 * cos(angle), z + sin(angle));
-	glRotatef(45 + angle * 180 / 3.14, -sin(angle), cos(angle), -sin(angle));
-	glScalef(1, 0.5, 0.05);
-	glColor3f(r - 0.4, g - 0.4, b - 0.4);
-	glutSolidSphere(2, 50, 50);
-	glPopMatrix();
-
-	// Đuôi
-	glPushMatrix();
-	glTranslatef(x + (2.5 + sin(angle)) * cos(angle), y + (1.5 - cos(angle)) * sin(angle), z + (2 + sin(angle)) * sin(angle));
-	glRotatef(35 + angle * 180 / 3.14, -sin(angle), cos(angle), -sin(angle));
-	glScalef(0.5, 0.05, 1);
-	glColor3f(1, 0, 0);
-	glutSolidCube(2);
-	glPopMatrix();
-
-}
 float speed = 0.1;
 float angleSpeed = 0.05;
 float wheelAngle = 0.1;
